@@ -1,0 +1,63 @@
+<script type="text/javascript">
+    RED.nodes.registerType('relay',{
+        category: 'function',
+        color: '#e30427',
+        defaults: {
+            name: {value:""},
+            module: {value:"", required:true},
+            rel: {value:"power-module", required:true},
+            mode: {value:"on", required:true},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "icon.png",
+        label: function() {
+            return this.name||"relay";
+        },
+
+        oneditprepare: function() {
+            $("#node-input-rel").on("change",function() {
+                if(($("#node-input-rel").val() === "power-module")){
+                    $("#node-input-mode").children('option')[2].hidden = true;
+                } else {
+                    $("#node-input-mode").children('option')[2].hidden = false;
+                }
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="relay">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-module"><i class="fa fa-bars"></i> Node ID</label>
+        <input type="text" id="node-input-module" placeholder="power-controller:0">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-rel"><i class="fa fa-wrench"></i> <span> Relay Type</span></label>
+        <select type="text" id="node-input-rel" style="width:70%;" placeholder="Select Relay Type">
+            <option value="power-module">Power Module</option>
+            <option value="relay-module">Relay Module</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-mode"><i class="fa fa-wrench"></i> <span> Mode</span></label>
+        <select type="text" id="node-input-mode" style="width:70%;" placeholder="Select Mode">
+            <option value="on">On</option>
+            <option value="off">Off</option>
+            <option value="pulse">Pulse</option>
+        </select>
+    </div>
+
+</script>
+
+<script type="text/html" data-help-name="relay">
+    <p>Node for setting state for HARDWARIO Relay</p>
+</script>

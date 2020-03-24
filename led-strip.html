@@ -1,0 +1,98 @@
+<script type="text/javascript">
+    RED.nodes.registerType('led-strip',{
+        category: 'function',
+        color: '#e30427',
+        defaults: {
+            name: {value:""},
+            module: {value:"", required:true},
+            mode: {value:"test", required:true},
+            color: {value:"#e66465"},
+            wait: {value: "50", required:true}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "icon.png",
+        label: function() {
+            return this.name||"led-strip";
+        },
+
+        oneditprepare: function() {
+
+            $("#color-hex").hide();
+
+            var selColor = $("#node-input-color").val();
+            
+            $("#led-color").val(selColor);
+            $("#led-color").select();
+
+            $("#node-input-mode").on("change",function() {
+                if (($("#node-input-mode").val() === "color-wipe")||($("#node-input-mode").val() === "theater-chase")
+                ||($("#node-input-mode").val() === "stroboscope")||($("#node-input-mode").val() === "icicle")
+                ||($("#node-input-mode").val() === "pulse-color")||($("#node-input-mode").val() === "color")) {
+                    $("#color-picker").show();
+                } else {
+                    $("#color-picker").hide();
+                }
+
+                if(($("#node-input-mode").val() === "test")||($("#node-input-mode").val() === "color")){
+                    $("#wait-text").hide();
+                } else {
+                    $("#wait-text").show();
+                }
+            });
+
+            $("#led-color").on("change", function() {
+                var selectedColor = $("#led-color").val();
+                $("#node-input-color").val(selectedColor);
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="led-strip">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-module"><i class="fa fa-bars"></i> Node ID</label>
+        <input type="text" id="node-input-module" placeholder="power-controller:0">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-mode"><i class="fa fa-wrench"></i> <span> Mode</span></label>
+        <select type="text" id="node-input-mode" style="width:70%;" placeholder="Select Mode">
+            <option value="test">Test</option>
+            <option value="rainbow">Rainbow</option>
+            <option value="rainbow-cycle">Rainbow Cycle</option>
+            <option value="theater-chase-rainbow">Theater Chase Rainbow</option>
+            <option value="color-wipe">Color Wipe</option>
+            <option value="theater-chase">Theater Chase</option>
+            <option value="stroboscope">Stroboscope</option>
+            <option value="icicle">ICicle</option>
+            <option value="pulse-color">Pulse Color</option>
+            <option value="color">Color</option>
+        </select>
+    </div>
+
+    <div class="form-row" id="color-picker">
+        <label for="led-color"><i class="fa fa-paint-brush"></i> Color</label>
+        <input type="color" id="led-color" value="#e66465">
+    </div>
+
+    <div class = "form-row" id="color-hex">
+        <label for="node-input-color"><i class ="fa fa-hashtag"></i> Color HEX</label>
+        <input type="text" id="node-input-color" readonly>
+    </div>
+
+    <div class="form-row" id="wait-text">
+        <label for="node-input-wait"><i class="fa fa-clock-o"></i> Wait Time</label>
+        <input type="text" id="node-input-wait" placeholder="50">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="led-strip">
+    <p>Node for setting effect or color for HARDWARIO LED Strip</p>
+</script>
