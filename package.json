@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-hardwario",
+  "name": "node-red-contrib-power-module",
   "node-red": {
     "nodes": {
       "led-strip": "led-strip.js",
@@ -7,7 +7,7 @@
     }
   },
   "version": "1.0.0",
-  "description": "Nodes for controlling HARDWARIO IoT Kit Modules",
-  "author": "Jakub Smejkal",
+  "description": "Nodes for controlling HARDWARIO IoT Kit Power Module",
+  "author": "HARDWARIO s.r.o.",
   "license": "MIT"
 }
