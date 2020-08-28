@@ -1,5 +1,10 @@
 {
-  "name": "node-red-contrib-power-module",
+  "name": "@hardwario/node-red-contrib-power-module",
+  "homepage": "https://hardwario.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hardwario/node-red-contrib-power-module"
+  },
   "node-red": {
     "nodes": {
       "led-strip": "power_module/led-strip.js",
