@@ -2,8 +2,8 @@
   "name": "node-red-contrib-power-module",
   "node-red": {
     "nodes": {
-      "led-strip": "led-strip.js",
-      "relay": "relay.js"
+      "led-strip": "power_module/led-strip.js",
+      "relay": "power_module/relay.js"
     }
   },
   "version": "1.0.0",
