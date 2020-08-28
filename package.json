@@ -1,18 +1,18 @@
 {
-  "name": "@hardwario/node-red-contrib-power-module",
+  "name": "@hardwario/node-red-contrib-hardwario-power-module",
   "homepage": "https://hardwario.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hardwario/node-red-contrib-power-module"
+    "url": "git+https://github.com/hardwario/node-red-contrib-hardwario-power-module"
   },
   "node-red": {
     "nodes": {
-      "led-strip": "power_module/led-strip.js",
-      "relay": "power_module/relay.js"
+      "led-strip": "hardwario/led-strip.js",
+      "relay": "hardwario/relay.js"
     }
   },
   "version": "1.0.0",
-  "description": "Nodes for controlling HARDWARIO IoT Kit Power Module",
+  "description": "Nodes for controlling HARDWARIO TOWER Power Module",
   "author": "HARDWARIO s.r.o.",
   "license": "MIT"
 }
