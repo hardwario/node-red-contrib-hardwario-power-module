@@ -1,3 +1,4 @@
+// Author: Jakub Smejkal for HARDWARIO s.r.o.
 module.exports = function(RED) {
     function setRelay(config) {
         RED.nodes.createNode(this,config);

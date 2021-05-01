@@ -1,3 +1,5 @@
+// Author: Jakub Smejkal for HARDWARIO s.r.o.
+
 module.exports = function(RED) {
     function setLEDStrip(config) {
         RED.nodes.createNode(this,config);
